@@ -1,12 +1,6 @@
 import random
 
-library = [{'title': 'Rick', 'year': 1994, 'kind': 'Action', 'plays': 0},
-           {'title': 'Mask', 'year': 1998, 'kind': 'Comedy', 'plays': 0},
-           {'title': 'Matrix', 'year': 2001, 'kind': 'SF', 'plays': 0},
-           {'title': 'Friends', 'year': 1999, 'kind': 'Series', 'season': 1, 'episode': 2, 'plays': 0},
-           {'title': 'Monk', 'year': 1988, 'kind': 'Series', 'season': 9, 'episode': 4, 'plays': 0},
-           {'title': 'Alternatywy', 'year': 1965, 'kind': 'Series', 'season': 3, 'episode': 5, 'plays': 0},
-           ]
+library = []
 
 
 class Movie:
@@ -16,6 +10,9 @@ class Movie:
         self.kind = kind
         self.plays = plays
 
+    def __str__(self):
+        return f'{self.title} ({self.year})'
+    
     def play(self):
         self.plays += 1
         print(f'Movie: {self.title} ({self.year})')
@@ -85,11 +82,20 @@ def top_titles(value):
 
 
 if __name__ == '__main__':
+    movie = Movie
+    series = Series
     print('Welcome to Movies Library')
-    get_movies()
-    get_series()
-    run_generate_views(10)
-    top_titles(3)
+    library.append(movie('Rick', 1994, 'Action', 0))
+    library.append(movie('Mask', 1998, 'Comedy', 0))
+    library.append(movie('Matrix', 2001, 'SF', 0))
+    library.append(series('Friends', 2001, 'Series', 1, 2, 0))
+    library.append(series('Monk', 1989, 'Series', 2, 4, 0))
+    library.append(series('Lego', 1800, 'Series', 8, 6, 0))
+
+    print('Welcome to Movies Library')
+    #jak to ponizej dziala?
+    print(*library, sep='\n')
+
 
 
 
