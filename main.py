@@ -113,7 +113,6 @@ if __name__ == '__main__':
 
     print('Welcome to Movies Library')
     print(*library, sep='\n')
-    print('Most popular movies are:')
     top_titles(3)
 
     #get_movies()
